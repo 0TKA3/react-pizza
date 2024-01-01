@@ -29,4 +29,25 @@
       color: #7b7b7b;
     }
   }
+
+  @media(max-width:1080px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .header__logo {
+      margin-bottom: 30px;
+    }
+
+    .search_root__g43zM {
+      order: 3;
+      margin-top: 30px;
+    }
+  }
+
+  @media(max-width:460px) {
+    .search_input__-8gc9 {
+      width: 280px;
+    }
+  }
 }
