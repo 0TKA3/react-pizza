@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { SearchContext } from "../../App";
 
 import styles from "./search.module.scss";
 
-export default function Search({ searchValue, setSearchValue }) {
+export default function Search() {
+
+  const {setSearchValue} = useContext(SearchContext)
+
   const [localValue, setLocalValue] = useState("");
 
   function inputHandler(e) {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       setSearchValue(localValue);
     }
 
-    if (e.target.id == "Glyph") {
+    if (e.target.id === "Glyph") {
       setSearchValue(localValue);
     }
   }
