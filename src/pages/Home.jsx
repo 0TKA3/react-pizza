@@ -1,21 +1,24 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { SearchContext } from "../App";
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
+import { useSelector,useDispatch } from "react-redux";
 
 export default function Home() {
-  const {searchValue} = useContext(SearchContext)
+  const categoryId = useSelector(state => state.filter.categoryId)
+  const sortType = useSelector(state => state.filter.sortType)
+  const sortOrder = useSelector(state => state.filter.sortOrder)
+  const searchValue = useSelector(state => state.search.value)
+
 
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState(0);
-  const [sortOrder, setSortOrder] = useState("desc");
+
 
   const sortList = ["rating", "price", "title"];
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -39,13 +42,8 @@ export default function Home() {
     <>
       <div className="container">
         <div className="content__top">
-          <Categories value={categoryId} setCategoryId={setCategoryId} />
-          <Sort
-            value={sortType}
-            setSortType={setSortType}
-            sortOrder={sortOrder}
-            setSortOrder={setSortOrder}
-          />
+          <Categories/>
+          <Sort/>
         </div>
         <h2 className="content__title">Все пиццы</h2>
         <div className="content__items">

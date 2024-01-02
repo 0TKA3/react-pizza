@@ -1,21 +1,19 @@
-import React, { useContext, useState } from "react";
-import { SearchContext } from "../../App";
+import React, { useState } from "react";
+
+import { setSearch } from "../../redux/slices/searchSlice";
 
 import styles from "./search.module.scss";
+import { useDispatch } from "react-redux";
 
 export default function Search() {
 
-  const {setSearchValue} = useContext(SearchContext)
+  const dispatch = useDispatch()
 
   const [localValue, setLocalValue] = useState("");
 
   function inputHandler(e) {
-    if (e.key === "Enter") {
-      setSearchValue(localValue);
-    }
-
-    if (e.target.id === "Glyph") {
-      setSearchValue(localValue);
+    if (e.key === "Enter" || e.target.if === 'Glyph') {
+      dispatch(setSearch(localValue));
     }
   }
 
@@ -25,7 +23,7 @@ export default function Search() {
         className={styles.input}
         placeholder="Поиск.."
         onChange={(e) => setLocalValue(e.target.value)}
-        onBlur={(e) => setSearchValue(e.target.value)}
+        onBlur={(e) => dispatch(setSearch(e.target.value))}
         onKeyDown={inputHandler}
         value={localValue}
       />
