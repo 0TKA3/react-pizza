@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
