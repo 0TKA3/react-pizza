@@ -19,10 +19,15 @@ const filterSlice = createSlice({
         setSortOrder: (state,{payload}) => {
             state.sortOrder = payload
         },
+        setFilters: (state,{payload}) => {
+            state.categoryId = Number(payload.categoryId)
+            state.sortType = Number(payload.sortType)
+            state.sortOrder =  payload.sortOrder
+        }
     }
 })
 
-export const {setCategoryId, setSortType,setSortOrder} = filterSlice.actions
+export const {setCategoryId, setSortType,setSortOrder,setFilters} = filterSlice.actions
 
 
 export default filterSlice.reducer

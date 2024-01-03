@@ -5,16 +5,19 @@ const initialState = {
 }
 
 const searchSlice = createSlice({
-    name: 'filter',
+    name: 'search',
     initialState,
     reducers: {
         setSearch: (state, {payload}) => {
+            state.value = payload
+        },
+        setSearchFromParams: (state, {payload}) => {
             state.value = payload
         }
     }
 })
 
-export const {setSearch} = searchSlice.actions
+export const {setSearch,setSearchFromParams} = searchSlice.actions
 
 
 export default searchSlice.reducer
