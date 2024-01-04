@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Sort from "../components/Sort";
-import Categories from "../components/Categories";
-import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
-import Skeleton from "../components/PizzaBlock/Skeleton";
+import { setFilters } from "../redux/slices/filterSlice";
+import { setSearchFromParams } from '../redux/slices/searchSlice'
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import qs from 'qs'
-import { useNavigate } from "react-router-dom";
-import { setFilters } from "../redux/slices/filterSlice";
-import { setSearchFromParams } from '../redux/slices/searchSlice'
+import Sort from "../components/Sort";
+import Categories from "../components/Categories";
+import Skeleton from "../components/PizzaBlock/Skeleton";
+import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 
 export default function Home() {
   const navigate = useNavigate()
