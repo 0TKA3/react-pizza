@@ -31,16 +31,25 @@ export default function Home() {
   const sortList = ["rating", "price", "title"];
 
 
-  function fetchProducts() {
+  async function fetchProducts() {
     setIsLoading(true);
-    axios.get("https://658ee58f2871a9866e79ff4c.mockapi.io/items" +
+
+    const link = "https://658ee58f2871a9866e79ff4c.mockapi.io/items" +
       `?sortBy=${sortList[sortType]}&order=${sortOrder}` +
       (categoryId ? `&category=${categoryId}` : "") +
-      (searchValue ? `&search=${searchValue}` : ""))
-      .then((res) => {
-        setItems(res.data);
-        setIsLoading(false);
-      });
+      (searchValue ? `&search=${searchValue}` : "")
+
+    try {
+      const res = await axios.get(link)
+      setItems(res.data);
+    } catch (error) {
+      alert('Произошла ошибка, пожалуйста перезагрузите страницу')
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+
+
   }
 
 
