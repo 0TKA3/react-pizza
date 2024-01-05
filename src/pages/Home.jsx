@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { setFilters } from "../redux/slices/filterSlice";
 import { setSearchFromParams } from '../redux/slices/searchSlice'
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import qs from 'qs'
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
+import { fetchData } from "../redux/slices/dataSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 export default function Home() {
   const navigate = useNavigate()
@@ -25,6 +26,7 @@ export default function Home() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   const dispatch = useDispatch()
 
 
@@ -33,23 +35,16 @@ export default function Home() {
 
   async function fetchProducts() {
     setIsLoading(true);
-
-    const link = "https://658ee58f2871a9866e79ff4c.mockapi.io/items" +
-      `?sortBy=${sortList[sortType]}&order=${sortOrder}` +
-      (categoryId ? `&category=${categoryId}` : "") +
-      (searchValue ? `&search=${searchValue}` : "")
-
     try {
-      const res = await axios.get(link)
-      setItems(res.data);
+      const actionResult = await dispatch(fetchData({ categoryId, sortType, sortOrder, searchValue, sortList }));
+      const result = unwrapResult(actionResult);
+      setItems(result);
     } catch (error) {
-      alert('Произошла ошибка, пожалуйста перезагрузите страницу')
-      console.log(error);
+      alert('Произошла ошибка, пожалуйста, перезагрузите страницу');
+      console.error(error);
     } finally {
       setIsLoading(false);
     }
-
-
   }
 
 
@@ -62,6 +57,10 @@ export default function Home() {
       dispatch(setSearchFromParams(params.searchValue))
       isSearch.current = true
     }
+  }, [])
+
+  useEffect(() => {
+    fetchProducts(); // Вызов при первой загрузке страницы
   }, [])
 
 
