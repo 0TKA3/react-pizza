@@ -20,14 +20,14 @@ export default function CartItem({ id, title, price, count, imageUrl, type, size
         <div className="cart__item">
             <div className="cart__item-img">
                 <img
-                    className="pizza-block__image"
+                    className="product-block__image"
                     src={imageUrl}
-                    alt="Pizza"
+                    alt="Soup"
                 />
             </div>
             <div className="cart__item-info">
                 <h3>{title}</h3>
-                <p>{type}, {size} см.</p>
+                <p>{type}, {size} мл.</p>
             </div>
             <div className="cart__item-count">
                 <div onClick={onClickMinus} className="button button--outline button--circle cart__item-count-minus">

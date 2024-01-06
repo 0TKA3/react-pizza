@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { useSelector,useDispatch } from "react-redux";
-import {setCategoryId} from '../redux/slices/filterSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { setCategoryId } from '../redux/slices/filterSlice'
 
 export default function Categories() {
 
-  const categoryId = useSelector((state)=>state.filter.categoryId)
+  const categoryId = useSelector((state) => state.filter.categoryId)
   const dispatch = useDispatch()
-  const categories = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые"];
+  const categories = ["Все", "Мясные", "Вегетарианские", "Традиционные", "Острые"];
 
   return (
     <div className="categories">

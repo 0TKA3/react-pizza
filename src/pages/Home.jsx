@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -7,8 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import qs from 'qs'
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
-import Skeleton from "../components/PizzaBlock/Skeleton";
-import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
+import Skeleton from "../components/ProductBlock/Skeleton";
+import ProductBlock from "../components/ProductBlock/ProductBlock";
 import { fetchData } from "../redux/slices/dataSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
@@ -95,13 +96,13 @@ export default function Home() {
           <Categories />
           <Sort />
         </div>
-        <h2 className="content__title">Все пиццы</h2>
+        <h2 className="content__title">Все супы</h2>
         <div className="content__items">
           {isLoading
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
             : items
               .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
-              .map((obj, index) => <PizzaBlock {...obj} key={index}></PizzaBlock>)}
+              .map((obj, index) => <ProductBlock {...obj} key={index}></ProductBlock>)}
         </div>
       </div>
     </>

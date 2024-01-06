@@ -95,7 +95,7 @@ export default function Cart() {
           <div className="cart__bottom-details">
             <span>
               {" "}
-              Всего пицц: <b>{totalCount} шт.</b>{" "}
+              Всего супов: <b>{totalCount} шт.</b>{" "}
             </span>
             <span>
               {" "}

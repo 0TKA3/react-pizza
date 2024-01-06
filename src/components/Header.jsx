@@ -1,4 +1,4 @@
-import pizzaLogo from "../assets/img/pizza-logo.svg";
+import soupLogo from "../assets/img/soup-logo.svg";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import { useSelector } from 'react-redux'
@@ -13,10 +13,10 @@ export default function Header() {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="38" src={pizzaLogo} alt="Pizza logo" />
+            <img width="50" src={soupLogo} alt="Soup logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>Super soup</h1>
+              <p>доставка супов по всей вселенной!</p>
             </div>
           </div>
         </Link>
