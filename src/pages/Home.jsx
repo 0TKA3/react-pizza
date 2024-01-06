@@ -11,7 +11,6 @@ import Categories from "../components/Categories";
 import Skeleton from "../components/ProductBlock/Skeleton";
 import ProductBlock from "../components/ProductBlock/ProductBlock";
 import { fetchData } from "../redux/slices/dataSlice";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 export default function Home() {
   const navigate = useNavigate()
@@ -37,7 +36,7 @@ export default function Home() {
   async function fetchProducts() {
     setIsLoading(true);
     try {
-      const actionResult = await dispatch(fetchData({ categoryId, sortType, sortOrder, searchValue, sortList }));
+      await dispatch(fetchData({ categoryId, sortType, sortOrder, searchValue, sortList }));
     } catch (error) {
       alert('Произошла ошибка, пожалуйста, перезагрузите страницу');
       console.error(error);
