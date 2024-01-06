@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e9a42594.css",
+    "main.js": "/static/js/main.e27514b6.js",
+    "static/media/empty-cart.png": "/static/media/empty-cart.db905d1f4b063162f25b.png",
+    "static/media/soup-logo.svg": "/static/media/soup-logo.0cc49b395c6a58590690d787c6c7aeaa.svg",
+    "index.html": "/index.html",
+    "main.e9a42594.css.map": "/static/css/main.e9a42594.css.map",
+    "main.e27514b6.js.map": "/static/js/main.e27514b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9a42594.css",
+    "static/js/main.e27514b6.js"
+  ]
+}
