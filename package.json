@@ -1,7 +1,7 @@
 {
   "name": "react-soup",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://0tka3.github.io/react-soup/home",
   "private": true,
   "dependencies": {
     "@azure/core-rest-pipeline": "^1.13.0",
