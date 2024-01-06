@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
+import { Link } from "react-router-dom";
 
 export default function ProductBlock({ title, price, id, imageUrl, types, sizes, category, rating }) {
   const dispatch = useDispatch()
@@ -27,8 +28,10 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes,
 
   return (
     <div className="product-block">
-      <img className="product-block__image" src={imageUrl} alt="Soup" />
-      <h4 className="product-block__title">{title ? title : "Суп"}</h4>
+      <Link to={`product/${id}`}>
+        <img className="product-block__image" src={imageUrl} alt="Soup" />
+        <h4 className="product-block__title">{title ? title : "Суп"}</h4>
+      </Link>
       <div className="product-block__selector">
         <ul>
           {types.map((type, index) => (

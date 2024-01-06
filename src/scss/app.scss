@@ -373,13 +373,23 @@ body {
       font-weight: 600;
       font-size: 18px;
     }
+
+    .image-placeholder {
+      margin: 45px auto 60px;
+      width: 300px;
+      height: 225px;
+    }
   }
 
   @media (max-width: 685px) {
     width: 90%;
 
     img {
-      width: 90%;
+      width: 100%;
+    }
+
+    .image-placeholder {
+      width: 70%;
     }
   }
 }
@@ -461,5 +471,127 @@ b {
         padding: 5px 5px;
       }
     }
+  }
+}
+
+.product-block-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+}
+
+.product-detail-block,
+.product-detail-block .product-detail-img {
+  @media (min-width: 590px) {
+    align-items: center;
+    display: flex;
+  }
+}
+
+.product-detail-block .product-detail-img,
+.product-detail-block .product-detail-info {
+  @media (min-width: 590px) {
+    max-width: 490px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+
+.product-detail-block .product-detail-img,
+.product-detail-block .product-detail-info {
+  @media (min-width: 590px) {
+    max-width: 490px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+
+.product-detail-block .product-detail-img .product-block__image {
+  @media (min-width: 590px) {
+    width: 100%;
+  }
+}
+
+.product-detail-block .product-detail-img,
+.product-detail-block .product-detail-info {
+  @media (min-width: 590px) {
+    max-width: 490px;
+    padding: 20px;
+    width: 50%;
+  }
+}
+
+@media (min-width: 590px) {
+  .product-block__title {
+    font-size: 23px;
+  }
+}
+
+.product-block__description {
+  color: #5c6370;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.product-block__selector {
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  text-align: center;
+}
+
+.product-block__bottom {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.product-block__title {
+  font-size: 22px;
+}
+
+.loader {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+  background: currentColor;
+  color: #161616;
+  box-sizing: border-box;
+  animation: animloader 0.3s 0.3s linear infinite alternate;
+}
+
+.loader::after,
+.loader::before {
+  content: "";
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  background: currentColor;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  box-sizing: border-box;
+  animation: animloader 0.3s 0.45s linear infinite alternate;
+}
+.loader::before {
+  left: -20px;
+  animation-delay: 0s;
+}
+
+@keyframes animloader {
+  0% {
+    height: 48px;
+  }
+  100% {
+    height: 4px;
   }
 }

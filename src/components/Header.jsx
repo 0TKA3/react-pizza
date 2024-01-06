@@ -1,5 +1,5 @@
 import soupLogo from "../assets/img/soup-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Search from "./Search";
 import { useSelector } from 'react-redux'
 
@@ -7,6 +7,8 @@ export default function Header() {
 
   const { items, totalPrice } = useSelector(state => state.cart)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+
+  const { pathname } = useLocation()
 
   return (
     <div className="header">
@@ -20,9 +22,9 @@ export default function Header() {
             </div>
           </div>
         </Link>
-        <Search />
+        {pathname !== '/cart' && <Search />}
         <div className="header__cart">
-          <Link to="/cart" className="button button--cart">
+          {pathname !== '/cart' && <Link to="/cart" className="button button--cart">
             <span>{totalPrice} ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -54,7 +56,8 @@ export default function Header() {
               />
             </svg>
             <span>{totalCount}</span>
-          </Link>
+          </Link>}
+
         </div>
       </div>
     </div>

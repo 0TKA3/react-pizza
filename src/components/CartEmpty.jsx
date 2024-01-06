@@ -10,7 +10,9 @@ export default function CartEmpty() {
                 Вероятней всего, вы не заказывали ещё супы.<br />
                 Для того, чтобы заказать супы, перейди на главную страницу.
             </p>
-            <img src={emptyCartImg} alt="Empty cart" />
+            <div className='image-placeholder'>
+                <img src={emptyCartImg} alt="Empty cart" />
+            </div>
             <Link to="/" className="button button--black">
                 <span>Вернуться назад</span>
             </Link>
