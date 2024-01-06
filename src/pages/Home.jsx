@@ -24,7 +24,7 @@ export default function Home() {
   const isMounted = useRef(false)
 
 
-  const [items, setItems] = useState([]);
+  const items = useSelector(state => state.data.data)
   const [isLoading, setIsLoading] = useState(true);
 
 
@@ -38,8 +38,6 @@ export default function Home() {
     setIsLoading(true);
     try {
       const actionResult = await dispatch(fetchData({ categoryId, sortType, sortOrder, searchValue, sortList }));
-      const result = unwrapResult(actionResult);
-      setItems(result);
     } catch (error) {
       alert('Произошла ошибка, пожалуйста, перезагрузите страницу');
       console.error(error);

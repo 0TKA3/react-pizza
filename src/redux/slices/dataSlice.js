@@ -24,7 +24,11 @@ const dataSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setData: (state, { paylaod }) => {
+      state.data = paylaod;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
