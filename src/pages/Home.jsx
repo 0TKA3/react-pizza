@@ -11,6 +11,7 @@ import Categories from "../components/Categories";
 import Skeleton from "../components/ProductBlock/Skeleton";
 import ProductBlock from "../components/ProductBlock/ProductBlock";
 import { fetchData } from "../redux/slices/dataSlice";
+import FailedFetch from "../components/FailedFetch/FailedFetch";
 
 export default function Home() {
   const navigate = useNavigate()
@@ -97,9 +98,9 @@ export default function Home() {
         <div className="content__items">
           {isLoading
             ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-            : items
+            : items.length > 0 ? items
               .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
-              .map((obj, index) => <ProductBlock {...obj} key={index}></ProductBlock>)}
+              .map((obj, index) => <ProductBlock {...obj} key={index}></ProductBlock>) : <FailedFetch />}
         </div>
       </div>
     </>
