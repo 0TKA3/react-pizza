@@ -400,3 +400,66 @@ b {
     }
   }
 }
+@media (max-width: 760px) {
+  .cart__top {
+    flex-direction: column;
+  }
+  .container--cart {
+    display: flex;
+    justify-content: center;
+  }
+  .content__items {
+    width: 100%;
+  }
+  .cart__item {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    .cart__item-img {
+      width: 150px;
+      height: 150px;
+      margin-right: 0px;
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .cart__item-info {
+      margin: 10px 0px;
+      width: auto;
+
+      h3 {
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+    .cart__item-count {
+      width: 100px;
+      b {
+        margin-left: 0px;
+      }
+    }
+    .cart__item-price {
+      margin: 10px 0px;
+      b {
+        font-weight: 800;
+        margin-left: 0px;
+      }
+    }
+
+    .cart__bottom-details {
+      span {
+        font-size: 16px !important;
+      }
+    }
+    .cart__bottom-buttons {
+      .button {
+        margin-right: 15px;
+        padding: 5px 5px;
+      }
+    }
+  }
+}
