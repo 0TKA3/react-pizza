@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-soup/static/css/main.e9a42594.css",
-    "main.js": "/react-soup/static/js/main.19c3133e.js",
-    "static/media/empty-cart.png": "/react-soup/static/media/empty-cart.db905d1f4b063162f25b.png",
-    "static/media/soup-logo.svg": "/react-soup/static/media/soup-logo.0cc49b395c6a58590690d787c6c7aeaa.svg",
-    "index.html": "/react-soup/index.html",
-    "main.e9a42594.css.map": "/react-soup/static/css/main.e9a42594.css.map",
-    "main.19c3133e.js.map": "/react-soup/static/js/main.19c3133e.js.map"
+    "main.css": "/react-soup/home/static/css/main.e9a42594.css",
+    "main.js": "/react-soup/home/static/js/main.2a3b3ef5.js",
+    "static/media/empty-cart.png": "/react-soup/home/static/media/empty-cart.db905d1f4b063162f25b.png",
+    "static/media/soup-logo.svg": "/react-soup/home/static/media/soup-logo.0cc49b395c6a58590690d787c6c7aeaa.svg",
+    "index.html": "/react-soup/home/index.html",
+    "main.e9a42594.css.map": "/react-soup/home/static/css/main.e9a42594.css.map",
+    "main.2a3b3ef5.js.map": "/react-soup/home/static/js/main.2a3b3ef5.js.map"
   },
   "entrypoints": [
     "static/css/main.e9a42594.css",
-    "static/js/main.19c3133e.js"
+    "static/js/main.2a3b3ef5.js"
   ]
 }
