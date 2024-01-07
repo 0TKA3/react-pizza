@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <div className="content">
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:productId" element={<FullProduct />} />
           <Route path="*" element={<NotFound />} />
