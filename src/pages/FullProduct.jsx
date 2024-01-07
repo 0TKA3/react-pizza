@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { addItem } from '../redux/slices/cartSlice'
 import { useDispatch } from 'react-redux'
 
@@ -40,7 +40,7 @@ export default function FullProduct() {
     if (product) {
         return (
             <div className='container'>
-                <div className="product-block-wrapper">
+                <div className="product-block-wrapper fullproduct-wrapper">
                     <div className="product-detail-block">
                         <div className="product-detail-img">
                             <img className="product-block__image" src={product.imageUrl} alt="product" />
@@ -77,7 +77,11 @@ export default function FullProduct() {
                             </div>
                         </div>
                     </div>
+                    <Link to="/" className="button button--black button-fullproduct">
+                        <span>Вернуться назад</span>
+                    </Link>
                 </div>
+
             </div>
         )
     } else {
