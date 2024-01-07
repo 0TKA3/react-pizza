@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-soup/static/css/main.e9a42594.css",
-    "main.js": "/react-soup/static/js/main.b08e4648.js",
+    "main.css": "/react-soup/static/css/main.77f32f30.css",
+    "main.js": "/react-soup/static/js/main.b522ab31.js",
     "static/media/empty-cart.png": "/react-soup/static/media/empty-cart.db905d1f4b063162f25b.png",
     "static/media/soup-logo.svg": "/react-soup/static/media/soup-logo.0cc49b395c6a58590690d787c6c7aeaa.svg",
     "index.html": "/react-soup/index.html",
-    "main.e9a42594.css.map": "/react-soup/static/css/main.e9a42594.css.map",
-    "main.b08e4648.js.map": "/react-soup/static/js/main.b08e4648.js.map"
+    "main.77f32f30.css.map": "/react-soup/static/css/main.77f32f30.css.map",
+    "main.b522ab31.js.map": "/react-soup/static/js/main.b522ab31.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9a42594.css",
-    "static/js/main.b08e4648.js"
+    "static/css/main.77f32f30.css",
+    "static/js/main.b522ab31.js"
   ]
 }
