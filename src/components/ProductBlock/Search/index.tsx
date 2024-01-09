@@ -21,9 +21,6 @@ export default function Search() {
     if (e.key === "Enter") {
       dispatch(setSearch(localValue));
     }
-    if (e.target.if === "Glyph") {
-      dispatch(setSearch(localValue));
-    }
   }
 
   return (
@@ -37,7 +34,6 @@ export default function Search() {
         value={localValue}
       />
       <svg
-        onClick={inputHandler}
         className={styles.icon}
         enableBackground="new 0 0 32 32"
         id="Glyph"
