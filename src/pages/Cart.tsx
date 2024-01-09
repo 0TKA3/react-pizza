@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import { clearItems } from "../redux/slices/cartSlice";
 import CartEmpty from "../components/CartEmpty";
+import { RootState } from "../redux/store";
+
 export default function Cart() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const items = useSelector(state => state.cart.items)
-  const totalPrice = useSelector(state => state.cart.totalPrice)
+  const { items, totalPrice } = useSelector((state: RootState) => state.cart);
 
   const onClickClear = () => {
-    dispatch(clearItems())
-  }
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+    dispatch(clearItems());
+  };
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   if (!totalPrice) {
-    return <CartEmpty />
+    return <CartEmpty />;
   }
 
   return (
@@ -89,7 +89,9 @@ export default function Cart() {
           </div>
         </div>
         <div className="content__items">
-          {items.map((item) => <CartItem key={item.id} {...item} />)}
+          {items.map((item: any) => (
+            <CartItem key={item.id} {...item} />
+          ))}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">

@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-import { setSearch } from "../../redux/slices/searchSlice";
+import { setSearch } from "../../../redux/slices/searchSlice";
 
 import styles from "./search.module.scss";
+
+import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Search() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const searchParamsValue = useSelector(state => state.search.value)
+  const searchParamsValue = useSelector((state: RootState) => state.search.value);
   const [localValue, setLocalValue] = useState("");
 
   useEffect(() => {
-    setLocalValue(searchParamsValue)
-  }, [searchParamsValue])
+    setLocalValue(searchParamsValue);
+  }, [searchParamsValue]);
 
-
-  function inputHandler(e) {
-    if (e.key === "Enter" || e.target.if === 'Glyph') {
+  function inputHandler(e: any) {
+    if (e.key === "Enter") {
+      dispatch(setSearch(localValue));
+    }
+    if (e.target.if === "Glyph") {
       dispatch(setSearch(localValue));
     }
   }

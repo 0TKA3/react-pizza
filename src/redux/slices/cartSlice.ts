@@ -1,13 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ProductType } from "../../types/ProductType";
 
-const initialState = {
+type StateType = {
+  totalPrice: number;
+  items: ProductType[];
+};
+
+const initialState: StateType = {
   totalPrice: 0,
   items: [],
 };
 
-function calculateTotalPrice(state) {
-  state.totalPrice = state.items.reduce((sum, obj) => {
-    return obj.price * obj.count + sum;
+function calculateTotalPrice(state: StateType) {
+  state.totalPrice = state.items.reduce((sum: number, obj: ProductType) => {
+    if (obj.count) {
+      return obj.price * obj.count + sum;
+    } else {
+      return 0;
+    }
   }, 0);
 }
 
@@ -16,9 +26,9 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, { payload }) {
-      const findItem = state.items.find((obj) => obj.id === payload.id);
+      const findItem = state.items.find((obj: ProductType) => obj.id === payload.id);
 
-      if (findItem) {
+      if (findItem && findItem.count) {
         findItem.count++;
       } else {
         state.items.push({
@@ -30,7 +40,7 @@ const cartSlice = createSlice({
     },
     minusItem(state, { payload }) {
       const findItem = state.items.find((obj) => obj.id === payload);
-      if (findItem) {
+      if (findItem && findItem.count) {
         if (findItem.count > 1) {
           findItem.count--;
         }

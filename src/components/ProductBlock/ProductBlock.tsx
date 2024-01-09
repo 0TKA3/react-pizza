@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
+import { ProductType } from "../../types/ProductType";
+import { RootState } from "../../redux/store";
 
-export default function ProductBlock({ title, price, id, imageUrl, types, sizes, category, rating }) {
-  const dispatch = useDispatch()
-  const typeNames = ["оригинальный", "острый"];
+export default function ProductBlock({ title, price, id, imageUrl, types, sizes }: ProductType) {
+  const dispatch = useDispatch();
+  const typeNames: string[] = ["оригинальный", "острый"];
 
-  const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id))
-  const addedCount = cartItem ? cartItem.count : '0'
+  const cartItem: ProductType | undefined = useSelector(
+    (state: RootState) =>
+      state.cart.items.find((obj: ProductType) => obj.id === id) as ProductType | undefined
+  );
+
+  const addedCount: number | undefined = cartItem && "count" in cartItem ? cartItem.count : 0;
 
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
-
 
   const addOnClick = () => {
     const item = {
@@ -21,10 +26,10 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes,
       price,
       imageUrl,
       size: sizes[activeSize],
-      type: typeNames[activeType]
-    }
-    dispatch(addItem(item))
-  }
+      type: typeNames[activeType],
+    };
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="product-block">
@@ -69,7 +74,7 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes,
             />
           </svg>
           <span></span>
-          {addedCount > 0 && <i>{addedCount}</i>}
+          {addedCount && addedCount > 0 && <i>{addedCount}</i>}
         </button>
       </div>
     </div>

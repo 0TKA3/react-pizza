@@ -4,7 +4,19 @@ import axios from "axios";
 
 export const fetchData = createAsyncThunk(
   "data/fetch",
-  async ({ categoryId, sortType, sortOrder, searchValue, sortList }) => {
+  async ({
+    categoryId,
+    sortType,
+    sortOrder,
+    searchValue,
+    sortList,
+  }: {
+    categoryId: number;
+    sortType: number;
+    sortOrder: string;
+    searchValue: string;
+    sortList: string[];
+  }) => {
     const link =
       "https://658ee58f2871a9866e79ff4c.mockapi.io/items" +
       `?sortBy=${sortList[sortType]}&order=${sortOrder}` +
@@ -25,7 +37,7 @@ const dataSlice = createSlice({
     error: null,
   },
   reducers: {
-    setData: (state, { paylaod }) => {
+    setData: (state, { paylaod }: any) => {
       state.data = paylaod;
     },
   },
@@ -39,7 +51,7 @@ const dataSlice = createSlice({
         state.status = "succeeded";
         state.data = action.payload;
       })
-      .addCase(fetchData.rejected, (state, action) => {
+      .addCase(fetchData.rejected, (state, action: any) => {
         state.status = "failed";
         state.error = action.error.message;
       });

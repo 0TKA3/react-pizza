@@ -1,35 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSortType, setSortOrder } from "../redux/slices/filterSlice";
+import { RootState } from "../redux/store";
 
 export default function Sort() {
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const list = ["популярности", "цене", "алфавиту"];
 
-  const sortType = useSelector(state => state.filter.sortType)
-  const sortOrder = useSelector(state => state.filter.sortOrder)
+  const { sortType, sortOrder } = useSelector((state: RootState) => state.filter);
 
-  const sortRef = useRef()
+  const sortRef = useRef<HTMLDivElement>(null);
 
-  function onClickListItem(index) {
+  function onClickListItem(index: number) {
     dispatch(setSortType(index));
     setOpen(false);
   }
 
   useEffect(() => {
-    const handleCLickOutside = (event) => {
-      if (!event.composedPath().includes(sortRef.current)) {
-        setOpen(false)
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
+        setOpen(false);
       }
-    }
-    document.body.addEventListener('click', handleCLickOutside)
+    };
+    document.body.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.body.removeEventListener('click', handleCLickOutside)
-    }
-  }, [])
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="sort" ref={sortRef}>
