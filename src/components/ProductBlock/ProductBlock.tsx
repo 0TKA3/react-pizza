@@ -25,7 +25,7 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes 
       title,
       price,
       imageUrl,
-      size: sizes[activeSize],
+      size: sizes && sizes[activeSize],
       type: typeNames[activeType],
     };
     dispatch(addItem(item));
@@ -39,7 +39,7 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes 
       </Link>
       <div className="product-block__selector">
         <ul>
-          {types.map((type, index) => (
+          {types && types.map((type, index) => (
             <li
               key={type}
               onClick={() => setActiveType(index)}
@@ -49,7 +49,7 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes 
           ))}
         </ul>
         <ul>
-          {sizes.map((size, index) => (
+          {sizes && sizes.map((size, index) => (
             <li
               key={index}
               onClick={() => setActiveSize(index)}
@@ -74,7 +74,8 @@ export default function ProductBlock({ title, price, id, imageUrl, types, sizes 
             />
           </svg>
           <span></span>
-          {addedCount && addedCount > 0 && <i>{addedCount}</i>}
+          {addedCount && addedCount !== 0 ? <i>{addedCount}</i> : null}
+          {/* {addedCount && addedCount !== 0 && <i>{addedCount}</i>} */}
         </button>
       </div>
     </div>

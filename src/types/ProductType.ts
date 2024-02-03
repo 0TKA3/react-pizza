@@ -3,8 +3,8 @@ export type ProductType = {
   price: number;
   id: number;
   imageUrl: string;
-  types: number[];
-  sizes: number[];
+  types?: number[];
+  sizes?: number[];
   category: number;
   rating: number;
   count?: number;

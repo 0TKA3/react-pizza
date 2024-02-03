@@ -91,6 +91,8 @@ export default function Home() {
     isMounted.current = true;
   }, [categoryId, sortType, sortOrder, searchValue]);
 
+  console.log(items);
+
   return (
     <>
       <div className="container">
@@ -103,9 +105,7 @@ export default function Home() {
           {isLoading ? (
             [...new Array(6)].map((_, index) => <Skeleton key={index} />)
           ) : items.length > 0 ? (
-            items
-              .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
-              .map((obj, index) => <ProductBlock {...obj} key={index}></ProductBlock>)
+            items.map((obj, index) => <ProductBlock {...obj} key={index}></ProductBlock>)
           ) : (
             <FailedFetch />
           )}

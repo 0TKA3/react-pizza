@@ -17,7 +17,7 @@ export default function Search() {
     setLocalValue(searchParamsValue);
   }, [searchParamsValue]);
 
-  function inputHandler(e: any) {
+  function inputHandler(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       dispatch(setSearch(localValue));
     }

@@ -20,6 +20,7 @@ export default function Cart() {
     return <CartEmpty />;
   }
 
+  console.log(items)
   return (
     <div className="container container--cart">
       <div className="cart">
